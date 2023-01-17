@@ -1,14 +1,9 @@
-#8.10
-square={i:i**2 for i in range(10)}
-print(square)
-#8.11
-set_odd=set([i for i in range(10) if i%2!=0])
-print(set_odd)
-#8.12
-gen_word=(i for i in 'Got')
-gen_num=(i for i in range(10))
-def for_rotate(s):
-    for i in list(s):
-        print(i,end=' ')
-for_rotate(gen_word)
-for_rotate(gen_num)
+#8.13
+key_candid=('optimist','pessiist','troll')
+value_candid=('The glass is half full','The glass is half empty','How did you get a glass')
+dic_zip={x:y for x,y in zip(key_candid,value_candid)}
+#8.14
+title=['Creature of Habit','Crewel Fate']
+plots=['A num turns into a monster','A haunted yarn shop']
+movies={x:y for x,y in zip(title,plots)}
+print(movies)
