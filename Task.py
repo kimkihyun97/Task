@@ -1,13 +1,18 @@
 ##9.16
-def test_deco(func):
-    try:
-        print('start')
-        print(func())
-    finally:
-        print('end')
+##9.4
+class OopsException(Exception):
+    def __init__(self,msg):
+        self.msg=msg
+    def __str__(self):
+        return self.msg
 
-@test_deco
-def get_odds():
-    return [i for i in range(10) if i%2!=0]
+def putName():
+    name=input('이름을 입력해주세요: ')
+    if len(name)<3:
+        raise OopsException('Caught an oops')
+    print(name)
 
-get_odds
+try:
+    putName()
+except OopsException as oop:
+    print(oop)
