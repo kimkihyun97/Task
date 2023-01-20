@@ -1,7 +1,9 @@
-#10.1
-class Thing():
-    pass
+#10.2
+class Thing2():
+    def __init__(self,letter):
+        self.letter = letter
+    def __str__(self):
+        return self.letter
 
-print(Thing)
-example=Thing()
-print(example)
+ex=Thing2('abc')
+print(ex)
