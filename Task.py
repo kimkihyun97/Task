@@ -1,26 +1,25 @@
 import random
-import math
 import string
-class Node( ):
-    def __init__(self,name,x,y):
-        self.name = name
-        self.x = x
-        self. y = y
+def stoneAry():
+    stones = [i for i in string.ascii_lowercase[:5]]
+    go_to_sanckhouse = []
+    for _ in range(len(stones)) :
+        stone= stones[random.randint(0,4)]
+        while stone in go_to_sanckhouse :
+            stone = stones[random.randint(0,4)]
+        go_to_sanckhouse.append(stone)
+    return go_to_sanckhouse
 
-    def get_distance(self):
-        return math.sqrt(self.x**2+self.y**2)
 
-    def get_profile(self):
-        print(f'{self.name}, distance : {math.sqrt(self.x**2+self.y**2)}')
 
-def get_store(name, x, y):
-    return Node(name,x,y)
-
-if __name__ == '__main__' :
-
-    store =[get_store(i,random.randint(1,100),random.randint(1,100)) for i in string.ascii_lowercase[:11]]
-    store_distance = [i.get_distance() for i in store]
-    store_idx_distance_sort = sorted([[i,d] for i,d in enumerate(store_distance)], key = lambda x : x[1])
-    for idx, d in store_idx_distance_sort :
-        store[idx].get_profile()
+if __name__ == "__main__" :
+    go_to_sanckhouse = stoneAry()
+    print("go to snack house :", end = ' ')
+    for i in go_to_sanckhouse :
+        if i == go_to_sanckhouse[-1] : print(i)
+        else : print(i+" ->", end =' ')
+    print("go to my home :",end =' ')
+    for i in go_to_sanckhouse[::-1] :
+        if i == go_to_sanckhouse[0] : print(i)
+        else : print(i+" ->", end =' ')
 
